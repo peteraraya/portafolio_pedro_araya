@@ -88,7 +88,7 @@ export const timeline: TimelineEntry[] = [
     id: "consultoria-externa",
     kind: "experiencia",
     period: "2020 – 2025",
-    title: "Consultoría externa (paralelo a Ticblue)",
+    title: "Consultoría en Ticblue",
     subtitle: "Desarrollador Full Stack",
     details: [
       "Real Seguros: portal de clientes en Angular 2+ con formularios, validaciones y tablas de datos",
