@@ -16,8 +16,8 @@ export const profile: Profile = {
   headline: "Desarrollador Full-stack - Arquitectura y DevOps",
   location: "Chile",
   email: "piteraraya@gmail.com",
-  github: "github.com/peteraraya",
-  linkedin: "linkedin.com/in/pedro-araya-galvez",
+  github: "https://github.com/peteraraya",
+  linkedin: "https://linkedin.com/in/pedro-araya-galvez",
   roles: ["Orquestador", "Frontend Senior", "Backend", "DevOps / Infra", "Data Viz", "QA / Calidad"],
   summary:
     "Diseño, implemento y despliego productos completos: desde interfaces React de alto rendimiento hasta backends NestJS seguros y clusters Kubernetes.", 

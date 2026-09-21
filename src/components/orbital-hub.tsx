@@ -160,12 +160,17 @@ export function OrbitalHub({ selectedId, onSelect, onRun }: OrbitalHubProps) {
                 aria-label={`Agente ${a.name}: ${a.tagline}`}
                 aria-pressed={isSel}
                 onClick={() => onSelect(a.id)}
+                onDoubleClick={() => onRun(a.id)}
                 onMouseEnter={() => setHoverId(a.id)}
                 onMouseLeave={() => setHoverId(null)}
                 onKeyDown={(e: KeyboardEvent<SVGGElement>) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    onSelect(a.id);
+                    if (e.key === "Enter" && e.shiftKey) {
+                      onRun(a.id);
+                    } else {
+                      onSelect(a.id);
+                    }
                   }
                 }}
                 className="cursor-pointer outline-none"

@@ -39,4 +39,4 @@ npm run lint       # ESLint
 
 ## Datos a personalizar
 
-`src/data/profile.ts` tiene el nombre, email y redes como placeholder. `src/data/projects.ts` ya usa los proyectos reales de `F:\proyectos_personales\mvps`: los de `Produccion/` están marcados como **producción** con sus URLs reales (`demo`), y los de `Desarrollo/` como **en desarrollo** (sin `demo`). Revisá los campos `repo` (hay algunos sin remote configurado, quedaron vacíos) y completá la trayectoria en `src/data/timeline.ts` con tu historial laboral.
+`src/data/profile.ts` tiene el nombre, email y redes. `src/data/projects.ts` lista los proyectos reales: los marcados como **producción** tienen su URL de `demo`, y los **en desarrollo** aún no la tienen. Revisá los campos `repo` (hay algunos sin remote configurado, quedaron vacíos) y completá la trayectoria en `src/data/timeline.ts` con tu historial laboral.
