@@ -5,7 +5,8 @@ export interface Project {
   name: string;
   year: string;
   tagline: string;
-  description: string;
+  challenge: string;
+  solution: string;
   agents: AgentId[];
   stack: string[];
   highlights: string[];
@@ -20,8 +21,9 @@ export const projects: Project[] = [
     name: "Gym Tracker",
     year: "2026",
     tagline: "App PWA de entrenamiento con modo offline y base Supabase.",
-    description:
-      "Progresión de ejercicios, rutinas, seguimiento de sesiones e IA integrada. Funciona como PWA instalable con modo offline real, sincronización con Supabase y build móvil con Capacitor empujado a Android.",
+    challenge: "Quienes entrenan pierden el registro cuando el gimnasio no tiene buena señal.",
+    solution:
+      "PWA instalable con modo offline real, sincronización con Supabase y build móvil vía Capacitor.",
     agents: ["core", "frontend", "backend", "infra", "qa"],
     stack: ["Next.js 16", "React 19", "TypeScript 5", "Tailwind 4", "Supabase", "Capacitor", "PWA"],
     highlights: [
@@ -39,8 +41,10 @@ export const projects: Project[] = [
     name: "Evolift",
     year: "2026",
     tagline: "Gestión de entrenamiento y planes para equipos de fuerza.",
-    description:
-      "Aplicación de gestión de entrenamientos con API NestJS cacheada en Redis, autenticación OAuth (Google/GitHub) y frontend React con TanStack Query e i18n. SSR del API sobre Vercel con CORS restringido a origen de producción.",
+    challenge:
+      "Los equipos de fuerza necesitaban centralizar planes sin exponer credenciales ni abrir CORS a cualquier origen.",
+    solution:
+      "API NestJS cacheada en Redis con OAuth Google/GitHub y CORS restringido al dominio de producción.",
     agents: ["core", "frontend", "backend", "infra"],
     stack: ["NestJS", "Redis", "React", "Vite", "TanStack Query", "OAuth", "i18next"],
     highlights: [
@@ -58,8 +62,10 @@ export const projects: Project[] = [
     name: "Red Centinela",
     year: "2026",
     tagline: "Mapa de emergencias con datos oficiales y alertas en vivo.",
-    description:
-      "Sistema de monitoreo de emergencias que cruza datos públicos (SENAPRED, aluviones, clima) con un mapa interactivo. Backend NestJS con scraping agendado, throttling y caché en Upstash Redis; frontend con react-map-gl e i18n.",
+    challenge:
+      "Los datos de emergencia oficiales (SENAPRED, clima) están dispersos y sin una capa de alertas accesible.",
+    solution:
+      "Scraping agendado con cache en Redis y mapa interactivo que unifica las fuentes en tiempo real.",
     agents: ["core", "backend", "data", "frontend", "infra"],
     stack: ["NestJS", "Upstash Redis", "react-map-gl", "TanStack Query", "i18next"],
     highlights: [
@@ -77,8 +83,10 @@ export const projects: Project[] = [
     name: "PostulaTrack",
     year: "2026",
     tagline: "Seguimiento de postulaciones laborales con pipeline real.",
-    description:
-      "Gestor de postulaciones a empleos con tablero por estado, backend NestJS con Prisma sobre PostgreSQL en Neon, OAuth Google y frontend Angular servido por el propio backend. Configuración de producción en .env.production con URLs de callbacks reales.",
+    challenge:
+      "Seguir decenas de postulaciones laborales en hojas de cálculo pierde contexto y estados a los pocos días.",
+    solution:
+      "Tablero por estado con backend NestJS + Prisma sobre PostgreSQL y OAuth Google verificado en producción.",
     agents: ["core", "backend", "frontend", "infra", "qa"],
     stack: ["NestJS", "Angular", "Prisma", "PostgreSQL (Neon)", "OAuth", "JWT"],
     highlights: [
@@ -96,8 +104,10 @@ export const projects: Project[] = [
     name: "Tienda Confecciones",
     year: "2026",
     tagline: "Catálogo público + panel admin para tienda de confecciones.",
-    description:
-      "Sistema de inventario multi-tenant con catálogo público, variantes por talla y color, control de stock por combinación, ventas POS y galería Cloudinary. Auth de Supabase, panel admin oculto en la raíz y esquema SQL versionado en 12 migraciones.",
+    challenge:
+      "El negocio necesitaba controlar stock por talla y color sin perder trazabilidad en ventas físicas.",
+    solution:
+      "Esquema Supabase versionado en 12 migraciones con stock por combinación y panel POS integrado.",
     agents: ["core", "frontend", "backend", "data", "qa"],
     stack: ["Next.js 16", "React 19", "Supabase", "MUI", "Cloudinary", "Tailwind 4"],
     highlights: [
@@ -115,8 +125,9 @@ export const projects: Project[] = [
     name: "Zipek",
     year: "2026",
     tagline: "Landing institucional para marca con SEO técnico completo.",
-    description:
-      "Sitio institucional de Zipek con Next.js, Tailwind 4, sitemap generado con next-sitemap y metadatos optimizados. Desplegado en Vercel con dominio propio y robots.txt publicado.",
+    challenge: "La marca necesitaba presencia institucional indexable, no solo una landing visual.",
+    solution:
+      "Next.js con sitemap dinámico, metadatos optimizados y SEO técnico completo desplegado en dominio propio.",
     agents: ["core", "frontend", "infra"],
     stack: ["Next.js", "Tailwind 4", "next-sitemap", "Vercel"],
     highlights: [
@@ -134,8 +145,10 @@ export const projects: Project[] = [
     name: "Perfil Real",
     year: "2026",
     tagline: "Analizador de GitHub que convierte actividad real en perfil técnico.",
-    description:
-      "Motor de scoring sin LLM basado en la API pública de GitHub, cache en Supabase y validación Zod de punta a punta. Aún sin despliegue: el motor y la UI avanzan en Desarrollo.",
+    challenge:
+      "Los perfiles de GitHub no reflejan el nivel técnico real sin depender de un LLM subjetivo.",
+    solution:
+      "Motor de scoring 100% basado en datos públicos de la API de GitHub, con cache y validación Zod de punta a punta.",
     agents: ["core", "frontend", "backend", "data", "qa"],
     stack: ["Next.js 16", "Supabase", "Zod", "TanStack Query", "GitHub API", "Tailwind"],
     highlights: [
@@ -153,8 +166,9 @@ export const projects: Project[] = [
     name: "Caja Simple",
     year: "2026",
     tagline: "Gestión de caja minimalista y segura para el día a día.",
-    description:
-      "App full-stack sobre Next.js y Supabase con operaciones atómicas, validación estricta de entrada, indexado local con Dexie y estados de error diseñados antes que el flujo feliz.",
+    challenge: "Los errores en operaciones de caja multi-paso son costosos si no son atómicos.",
+    solution:
+      "Transacciones atómicas, validación estricta con Zod y persistencia offline-first con Dexie.",
     agents: ["core", "frontend", "backend", "qa"],
     stack: ["Next.js", "Supabase", "Dexie", "Zod", "Zustand", "Tailwind"],
     highlights: [
@@ -172,8 +186,9 @@ export const projects: Project[] = [
     name: "Gym AI App",
     year: "2026",
     tagline: "Asistente de rutinas en el gimnasio con detección de pose.",
-    description:
-      "App móvil Expo/React Native con cámara para corrección de técnica: pose detection en tiempo real con Vision Camera, navegación por stacks y almacenamiento local. En fases tempranas de desarrollo.",
+    challenge:
+      "Corregir la técnica en el gimnasio sin un entrenador presente es difícil de validar visualmente.",
+    solution: "App Expo/React Native con detección de pose en tiempo real vía Vision Camera.",
     agents: ["core", "frontend", "data", "qa"],
     stack: ["Expo", "React Native", "Vision Camera", "Pose Detection", "AsyncStorage"],
     highlights: [
@@ -191,8 +206,9 @@ export const projects: Project[] = [
     name: "Taskflow Pro",
     year: "2026",
     tagline: "API NestJS + web Next para gestión de tareas y equipos.",
-    description:
-      "Sistema de tareas con API NestJS y frontend Next.js. Backend modular con autenticación JWT y arquitectura por feature; el frontend consume la API con contratos tipados. En desarrollo en el directorio Desarrollo.",
+    challenge: "Equipos pequeños necesitan gestión de tareas sin comprar una herramienta SaaS cerrada.",
+    solution:
+      "API NestJS modular por feature más frontend Next.js tipado contra el contrato de la API.",
     agents: ["core", "backend", "frontend", "qa"],
     stack: ["NestJS", "Next.js", "JWT", "PostgreSQL"],
     highlights: [
@@ -210,8 +226,9 @@ export const projects: Project[] = [
     name: "Jobsearch",
     year: "2026",
     tagline: "Backend NestJS de búsqueda de empleo con colas y Prisma.",
-    description:
-      "API de ofertas y candidatos con NestJS, Prisma y PostgreSQL, colas de procesamiento con BullMQ sobre Redis, job scheduling y documentación Swagger. En desarrollo.",
+    challenge: "Procesar postulaciones y ofertas a gran volumen sin bloquear la API.",
+    solution:
+      "Colas asíncronas con BullMQ sobre Redis y scheduling recurrente documentado con Swagger.",
     agents: ["core", "backend", "data", "infra"],
     stack: ["NestJS", "Prisma", "PostgreSQL", "BullMQ", "Redis", "Swagger"],
     highlights: [
@@ -229,8 +246,10 @@ export const projects: Project[] = [
     name: "Portal Desempleo",
     year: "2026",
     tagline: "Plataforma de apoyo a cesantes con ofertas y beneficios.",
-    description:
-      "Portal que centraliza ofertas laborales, beneficios y recursos para personas en búsqueda de empleo. Backend NestJS y frontend Next.js en cartera de desarrollo.",
+    challenge:
+      "Centralizar beneficios y ofertas para cesantes suele quedar disperso entre organismos.",
+    solution:
+      "Backend NestJS por dominio y frontend Next.js orientado a accesibilidad para consolidar la información.",
     agents: ["core", "backend", "frontend", "data"],
     stack: ["NestJS", "Next.js", "PostgreSQL"],
     highlights: [

@@ -155,6 +155,7 @@ export function TerminalBoot() {
             <span className="text-neon">equipo de agentes</span> — cada tecnología que domino
             se despliega como un especialista dentro de esta interfaz.
           </p>
+          <p className="mt-4 max-w-xl leading-relaxed text-ink-dim">{profile.summary}</p>
           <ul className="mt-6 flex flex-wrap gap-2 font-mono text-xs">
             {profile.roles.map((role) => (
               <li
@@ -168,23 +169,23 @@ export function TerminalBoot() {
           </ul>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#agentes"
+              href="/cv.pdf"
+              download
               className="rounded-lg bg-neon px-5 py-3 text-sm font-medium text-bg transition-all hover:brightness-110"
             >
-              Explorar los agentes ↓
+              ↓ Descargar CV
+            </a>
+            <a
+              href="#proyectos"
+              className="rounded-lg border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-neon/60 hover:text-neon"
+            >
+              Ver proyectos
             </a>
             <a
               href="#contacto"
               className="rounded-lg border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-neon/60 hover:text-neon"
             >
               Contacto
-            </a>
-            <a
-              href="/cv.pdf"
-              download
-              className="rounded-lg border border-line px-5 py-3 font-mono text-sm text-ink-dim transition-colors hover:border-neon/60 hover:text-neon"
-            >
-              ↓ descargar CV
             </a>
           </div>
         </div>

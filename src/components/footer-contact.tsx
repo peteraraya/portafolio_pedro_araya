@@ -17,6 +17,13 @@ export function FooterContact() {
           >
             {profile.email}
           </a>
+          <a
+            href="/cv.pdf"
+            download
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-neon px-5 py-3 font-mono text-sm font-medium text-bg transition-all hover:brightness-110"
+          >
+            ↓ descargar CV
+          </a>
         </div>
 
         <div className="grid grid-cols-2 gap-6 font-mono text-sm">
@@ -48,8 +55,8 @@ export function FooterContact() {
           <div>
             <p className="mb-3 text-xs uppercase tracking-widest text-ink-faint">comandos</p>
             <ul className="space-y-2 text-ink-dim">
-              <li>#agentes</li>
               <li>#proyectos</li>
+              <li>#agentes</li>
               <li>#stack</li>
               <li>#trayectoria</li>
             </ul>

@@ -44,8 +44,8 @@ export function PortfolioShell() {
 
   const paletteItems: PaletteItem[] = [
     { id: "top", label: "inicio", hint: "ir al hero de arranque", run: () => scrollTo("top") },
-    { id: "sec-agentes", label: "agentes", hint: "inspeccionar constelación", run: () => scrollTo("agentes") },
     { id: "sec-proyectos", label: "proyectos", hint: "ver grilla completa", run: () => scrollTo("proyectos") },
+    { id: "sec-agentes", label: "agentes", hint: "inspeccionar constelación", run: () => scrollTo("agentes") },
     { id: "sec-stack", label: "stack", hint: "módulos del sistema", run: () => scrollTo("stack") },
     { id: "sec-trayectoria", label: "trayectoria", hint: "línea de tiempo", run: () => scrollTo("trayectoria") },
     { id: "sec-contacto", label: "contacto", hint: "email y redes", run: () => scrollTo("contacto") },
@@ -77,25 +77,6 @@ export function PortfolioShell() {
       <main>
         <section id="top">
           <TerminalBoot />
-        </section>
-
-        <section id="agentes" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24 sm:px-10">
-          <p className="font-mono text-sm text-ink-faint">{">"} /agentes</p>
-          <h2 className="text-shadow-neon mt-2 text-4xl font-semibold tracking-tight">
-            Un equipo, no un CV
-          </h2>
-          <p className="mt-3 max-w-2xl leading-relaxed text-ink-dim">
-            Esta página se piensa como un sistema operativo de mi carrera. Cada agente representa
-            un dominio que domino y actúa dentro de la interfaz: inspección de proyectos,
-            filtración no lineal y navegación por intención.
-          </p>
-          <div className="mt-12">
-            <OrbitalHub
-              selectedId={selected}
-              onSelect={(id) => setSelected(id)}
-              onRun={runAgent}
-            />
-          </div>
         </section>
 
         <section id="proyectos" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24 sm:px-10">
@@ -146,6 +127,25 @@ export function PortfolioShell() {
               projects={filteredProjects}
               active={filter}
               onReset={() => setFilter("all")}
+            />
+          </div>
+        </section>
+
+        <section id="agentes" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24 sm:px-10">
+          <p className="font-mono text-sm text-ink-faint">{">"} /agentes</p>
+          <h2 className="text-shadow-neon mt-2 text-4xl font-semibold tracking-tight">
+            Un equipo, no un CV
+          </h2>
+          <p className="mt-3 max-w-2xl leading-relaxed text-ink-dim">
+            Esta página se piensa como un sistema operativo de mi carrera. Cada agente representa
+            un dominio que domino y actúa dentro de la interfaz: inspección de proyectos,
+            filtración no lineal y navegación por intención.
+          </p>
+          <div className="mt-12">
+            <OrbitalHub
+              selectedId={selected}
+              onSelect={(id) => setSelected(id)}
+              onRun={runAgent}
             />
           </div>
         </section>
