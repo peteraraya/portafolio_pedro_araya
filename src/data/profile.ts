@@ -11,7 +11,7 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  name: "Pedro",
+  name: "Pedro Araya Gálvez",
   handle: "pedro-dev",
   headline: "Desarrollador Full-stack - Arquitectura y DevOps",
   location: "Chile",
