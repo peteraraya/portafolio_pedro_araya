@@ -8,8 +8,8 @@ export function FooterContact() {
           <p className="font-mono text-sm text-ink-faint">{">"} abierto a propuestas laborales</p>
           <h2 className="mt-2 text-3xl font-semibold text-ink">Hablemos.</h2>
           <p className="mt-3 leading-relaxed text-ink-dim">
-            Si buscas un full-stack que también piensa en infraestructura y calidad, este es el
-            canal.
+            Si buscas a un desarrollador full-stack que también piensa en infraestructura y
+            calidad, este es el canal.
           </p>
           <a
             href={`mailto:${profile.email}`}

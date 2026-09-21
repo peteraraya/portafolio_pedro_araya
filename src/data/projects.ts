@@ -40,7 +40,7 @@ export const projects: Project[] = [
     id: "evolift",
     name: "Evolift",
     year: "2026",
-    tagline: "Gestión de entrenamiento y planes para equipos de fuerza.",
+    tagline: "Gestión de entrenamientos y planes para atletas de fuerza.",
     challenge:
       "Los equipos de fuerza necesitaban centralizar planes sin exponer credenciales ni abrir CORS a cualquier origen.",
     solution:
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     year: "2026",
     tagline: "Analizador de GitHub que convierte actividad real en perfil técnico.",
     challenge:
-      "Los perfiles de GitHub no reflejan el nivel técnico real sin depender de un LLM subjetivo.",
+      "Los perfiles de GitHub no reflejan el nivel técnico real de una persona sin depender de la opinión subjetiva de un LLM.",
     solution:
       "Motor de scoring 100% basado en datos públicos de la API de GitHub, con cache y validación Zod de punta a punta.",
     agents: ["core", "frontend", "backend", "data", "qa"],

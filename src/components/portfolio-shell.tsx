@@ -139,7 +139,7 @@ export function PortfolioShell() {
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-dim">
             Esta página se piensa como un sistema operativo de mi carrera. Cada agente representa
             un dominio que domino y actúa dentro de la interfaz: inspección de proyectos,
-            filtración no lineal y navegación por intención.
+            exploración no lineal y navegación por intención.
           </p>
           <div className="mt-12">
             <OrbitalHub
@@ -156,7 +156,7 @@ export function PortfolioShell() {
             Módulos del sistema cargados
           </h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-dim">
-            Estas son las skills registradas como agentes de conocimiento en mi setup de
+            Estas son las skills registradas como agentes de conocimiento en mi entorno de
             desarrollo. Cada una responde a un dominio específico y se activa cuando la tarea lo
             requiere.
           </p>
