@@ -171,7 +171,7 @@ export function PortfolioShell() {
             Línea de tiempo
           </h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-dim">
-            Hitos de proyectos, sistemas y formación, de lo más reciente a lo más antiguo.
+            Experiencia profesional, proyectos propios y formación, de lo más reciente a lo más antiguo.
           </p>
           <div className="mt-10 max-w-2xl">
             <CareerTimeline />

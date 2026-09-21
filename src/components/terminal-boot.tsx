@@ -179,6 +179,13 @@ export function TerminalBoot() {
             >
               Contacto
             </a>
+            <a
+              href="/cv.pdf"
+              download
+              className="rounded-lg border border-line px-5 py-3 font-mono text-sm text-ink-dim transition-colors hover:border-neon/60 hover:text-neon"
+            >
+              ↓ descargar CV
+            </a>
           </div>
         </div>
 
