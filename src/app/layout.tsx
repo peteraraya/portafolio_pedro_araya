@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000";
-const title = `${profile.name} · Desarrollador Full-stack & DevOps`;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pedroaraya.vercel.app";
+const title = `${profile.name} · ${profile.headline}`;
 const description = profile.summary;
 
 export const metadata: Metadata = {

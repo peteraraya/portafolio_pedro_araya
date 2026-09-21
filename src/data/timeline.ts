@@ -1,6 +1,6 @@
 export interface TimelineEntry {
   id: string;
-  kind: "proyecto" | "educación" | "sistema";
+  kind: "experiencia" | "proyecto" | "educación" | "sistema";
   period: string;
   title: string;
   subtitle: string;
@@ -8,6 +8,18 @@ export interface TimelineEntry {
 }
 
 export const timeline: TimelineEntry[] = [
+  {
+    id: "ticblue",
+    kind: "experiencia",
+    period: "Ago 2020 – Jun 2026",
+    title: "Ticblue",
+    subtitle: "Full Stack Developer",
+    details: [
+      "Forge (Atlassian Marketplace): arquitectura serverless propia y chat omnicanal Jira Service Management + WhatsApp",
+      "UVLPIC (Industria Circular): módulo de campañas y marketplace end-to-end, React + Java Spring, hasta producción",
+      "RGSTCS (Teleconsulta): RBAC para médicos/pacientes/administradores y MFA vía WebSockets",
+    ],
+  },
   {
     id: "gym-tracker",
     kind: "proyecto",
@@ -73,11 +85,33 @@ export const timeline: TimelineEntry[] = [
     details: ["App full-stack con transacciones atómicas y validación estricta"],
   },
   {
+    id: "consultoria-externa",
+    kind: "experiencia",
+    period: "2020 – 2025",
+    title: "Consultoría externa (paralelo a Ticblue)",
+    subtitle: "Desarrollador Full Stack",
+    details: [
+      "Real Seguros: portal de clientes en Angular 2+ con formularios, validaciones y tablas de datos",
+      "iMed: migración XML/SOAP → Node.js con tests Jest, migración PHP → React/NestJS y design system con Storybook + Chromatic",
+    ],
+  },
+  {
+    id: "prevsis",
+    kind: "experiencia",
+    period: "Sep 2018 – Jul 2020",
+    title: "Prevsis S.A.",
+    subtitle: "Desarrollador Frontend",
+    details: [
+      "Interfaces React con reducción medible en la tasa de abandono de usuarios",
+      "Integración de APIs REST con backend .NET y optimización de rendimiento cross-browser",
+    ],
+  },
+  {
     id: "inacap",
     kind: "educación",
     period: "2014",
     title: "INACAP",
-    subtitle: "Educación",
-    details: ["Formación tecnológica"],
+    subtitle: "Analista Programador",
+    details: ["Título técnico en C.F.T. INACAP"],
   },
 ];

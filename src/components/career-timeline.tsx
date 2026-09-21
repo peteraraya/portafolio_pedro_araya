@@ -1,6 +1,7 @@
 import { timeline } from "@/data/timeline";
 
 const KIND_STYLE = {
+  experiencia: { color: "#34d399", label: "experiencia" },
   proyecto: { color: "#60a5fa", label: "proyecto" },
   educación: { color: "#93c5fd", label: "educación" },
   sistema: { color: "#22d3ee", label: "sistema" },
