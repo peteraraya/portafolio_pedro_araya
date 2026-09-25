@@ -5,8 +5,8 @@ interface NavProps {
 }
 
 const links = [
-  { href: "#agentes", label: "agentes" },
   { href: "#proyectos", label: "proyectos" },
+  { href: "#agentes", label: "agentes" },
   { href: "#stack", label: "stack" },
   { href: "#trayectoria", label: "trayectoria" },
 ];
@@ -44,9 +44,16 @@ export function Nav({ onOpenPalette }: NavProps) {
           </button>
           <a
             href="#contacto"
-            className="rounded-lg bg-neon px-3 py-1.5 font-mono text-xs text-bg transition-all hover:brightness-110"
+            className="hidden rounded-lg border border-line px-3 py-1.5 font-mono text-xs text-ink-dim transition-colors hover:border-neon/60 hover:text-neon sm:inline-block"
           >
             contactar
+          </a>
+          <a
+            href="/cv.pdf"
+            download
+            className="rounded-lg bg-neon px-3 py-1.5 font-mono text-xs font-medium text-bg transition-all hover:brightness-110"
+          >
+            ↓ descargar CV
           </a>
         </div>
       </div>

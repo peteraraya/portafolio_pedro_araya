@@ -49,7 +49,17 @@ export function ProjectGrid({ projects, active, onReset }: ProjectGridProps) {
             </div>
 
             <p className="mt-2 font-mono text-sm text-neon">{project.tagline}</p>
-            <p className="mt-3 text-sm leading-relaxed text-ink-dim">{project.description}</p>
+
+            <dl className="mt-3 space-y-2 text-sm leading-relaxed">
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-widest text-ink-faint">Reto</dt>
+                <dd className="text-ink-dim">{project.challenge}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-widest text-ink-faint">Solución</dt>
+                <dd className="text-ink-dim">{project.solution}</dd>
+              </div>
+            </dl>
 
             <ul className="mt-4 space-y-1.5">
               {project.highlights.map((h) => (

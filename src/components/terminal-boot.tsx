@@ -15,48 +15,98 @@ const bootLines = [
   "  ✓ data         · nivo plotly leaflet [idle]",
   "  ✓ qa           · vitest playwright [compiling]",
   "6 agentes listos · 0 errores · estático por defecto",
-  "escribe 'help' para los comandos disponibles",
+  "escribe 'help' o toca un atajo abajo ↓",
 ];
 
 const COMMANDS: Record<string, string> = {
-  help: "agentes · proyectos · stack · trayectoria · contacto · inicio · clear",
-  agentes: "inspector de agentes → #agentes",
+  help: "proyectos · agentes · stack · trayectoria · contacto · cv · inicio · clear",
   proyectos: "grilla de proyectos → #proyectos",
+  agentes: "inspector de agentes → #agentes",
   stack: "módulos del sistema → #stack",
   trayectoria: "línea de tiempo → #trayectoria",
   contacto: "email y redes → #contacto",
   inicio: "volver al arranque → #top",
 };
 
+const QUICK_COMMANDS = ["proyectos", "agentes", "stack", "trayectoria", "contacto", "cv"];
+
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
+function triggerCvDownload() {
+  const a = document.createElement("a");
+  a.href = "/cv.pdf";
+  a.download = "";
+  a.click();
 }
 
 export function TerminalBoot() {
   const [fast, setFast] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
+  const [cmdLog, setCmdLog] = useState<string[]>([]);
+  const [logIndex, setLogIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const runCommand = (raw: string) => {
     const cmd = raw.trim().toLowerCase();
+    if (cmd === "") return;
     if (cmd === "clear") {
       setHistory([]);
       return;
     }
-    if (cmd === "") return;
+    if (cmd === "cv") {
+      setHistory((h) => [...h, `$ ${raw}`, "  › descargando cv.pdf…"]);
+      triggerCvDownload();
+      return;
+    }
     const output = COMMANDS[cmd];
     if (output) {
       setHistory((h) => [...h, `$ ${raw}`, `  › ${output}`]);
-      scrollTo(output.includes("#") ? output.split("#")[1] : "");
+      if (cmd !== "help") {
+        scrollTo(output.includes("#") ? output.split("#")[1] : "");
+      }
     } else {
       setHistory((h) => [...h, `$ ${raw}`, `  › comando desconocido: '${raw}' (usa help)`]);
     }
   };
 
+  const runQuickCommand = (cmd: string) => {
+    runCommand(cmd);
+    setFast(true);
+    inputRef.current?.focus();
+  };
+
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      runCommand(e.currentTarget.value);
+      const value = e.currentTarget.value;
+      runCommand(value);
+      if (value.trim()) {
+        setCmdLog((log) => [...log, value.trim()]);
+      }
+      setLogIndex(null);
       e.currentTarget.value = "";
+      return;
+    }
+    if (e.key === "ArrowUp") {
+      if (cmdLog.length === 0) return;
+      e.preventDefault();
+      const nextIndex = logIndex === null ? cmdLog.length - 1 : Math.max(0, logIndex - 1);
+      setLogIndex(nextIndex);
+      e.currentTarget.value = cmdLog[nextIndex];
+      return;
+    }
+    if (e.key === "ArrowDown") {
+      if (logIndex === null) return;
+      e.preventDefault();
+      const nextIndex = logIndex + 1;
+      if (nextIndex >= cmdLog.length) {
+        setLogIndex(null);
+        e.currentTarget.value = "";
+      } else {
+        setLogIndex(nextIndex);
+        e.currentTarget.value = cmdLog[nextIndex];
+      }
     }
   };
 
@@ -103,7 +153,10 @@ export function TerminalBoot() {
               pedro@portfolio: ~/.opencode (zsh)
             </span>
           </div>
-          <div className="min-h-[19rem] px-4 py-4 font-mono text-[0.8rem] leading-6 sm:text-sm">
+          <div
+            className="min-h-[19rem] cursor-text px-4 py-4 font-mono text-[0.8rem] leading-6 sm:text-sm"
+            onClick={() => inputRef.current?.focus()}
+          >
             {bootLines.map((line, i) => (
               <p
                 key={line}
@@ -128,20 +181,41 @@ export function TerminalBoot() {
                 aria-label="Comando de la terminal"
                 onKeyDown={onKeyDown}
                 className="ml-2 w-full bg-transparent text-ink outline-none placeholder:text-ink-faint"
-                placeholder="escribe help y presiona enter…"
+                placeholder="escribe un comando… (↑ para repetir el anterior)"
               />
               <span className="inline-block h-4 w-2 bg-neon terminal-caret" aria-hidden />
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                setFast(true);
-                inputRef.current?.focus();
-              }}
-              className="mt-3 rounded border border-line px-2 py-1 text-[0.7rem] text-ink-faint transition-colors hover:border-neon/50 hover:text-ink"
+
+            <div
+              className="mt-4 flex flex-wrap gap-1.5 border-t border-line-soft pt-3"
+              role="group"
+              aria-label="Atajos de navegación de la terminal"
             >
-              saltar e interactuar ⏭
-            </button>
+              {QUICK_COMMANDS.map((cmd) => (
+                <button
+                  key={cmd}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    runQuickCommand(cmd);
+                  }}
+                  className="rounded-md border border-line px-2.5 py-1 text-[0.7rem] text-ink-dim transition-colors hover:border-neon/60 hover:text-neon"
+                >
+                  {cmd}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setFast(true);
+                  inputRef.current?.focus();
+                }}
+                className="ml-auto rounded-md px-2.5 py-1 text-[0.7rem] text-ink-faint transition-colors hover:text-ink"
+              >
+                saltar animación ⏭
+              </button>
+            </div>
           </div>
         </div>
 
@@ -155,6 +229,7 @@ export function TerminalBoot() {
             <span className="text-neon">equipo de agentes</span> — cada tecnología que domino
             se despliega como un especialista dentro de esta interfaz.
           </p>
+          <p className="mt-4 max-w-xl leading-relaxed text-ink-dim">{profile.summary}</p>
           <ul className="mt-6 flex flex-wrap gap-2 font-mono text-xs">
             {profile.roles.map((role) => (
               <li
@@ -168,23 +243,23 @@ export function TerminalBoot() {
           </ul>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#agentes"
+              href="/cv.pdf"
+              download
               className="rounded-lg bg-neon px-5 py-3 text-sm font-medium text-bg transition-all hover:brightness-110"
             >
-              Explorar los agentes ↓
+              ↓ Descargar CV
+            </a>
+            <a
+              href="#proyectos"
+              className="rounded-lg border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-neon/60 hover:text-neon"
+            >
+              Ver proyectos
             </a>
             <a
               href="#contacto"
               className="rounded-lg border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-neon/60 hover:text-neon"
             >
               Contacto
-            </a>
-            <a
-              href="/cv.pdf"
-              download
-              className="rounded-lg border border-line px-5 py-3 font-mono text-sm text-ink-dim transition-colors hover:border-neon/60 hover:text-neon"
-            >
-              ↓ descargar CV
             </a>
           </div>
         </div>

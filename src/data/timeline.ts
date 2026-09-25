@@ -102,7 +102,7 @@ export const timeline: TimelineEntry[] = [
     title: "Prevsis S.A.",
     subtitle: "Desarrollador Frontend",
     details: [
-      "Interfaces React con reducción medible en la tasa de abandono de usuarios",
+      "Interfaces en React con una reducción medible en la tasa de abandono de usuarios",
       "Integración de APIs REST con backend .NET y optimización de rendimiento cross-browser",
     ],
   },

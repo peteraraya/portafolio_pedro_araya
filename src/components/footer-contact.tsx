@@ -6,10 +6,10 @@ export function FooterContact() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 sm:px-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-md">
           <p className="font-mono text-sm text-ink-faint">{">"} abierto a propuestas laborales</p>
-          <h2 className="mt-2 text-3xl font-semibold text-ink">Hablemos de tu stack.</h2>
+          <h2 className="mt-2 text-3xl font-semibold text-ink">Hablemos.</h2>
           <p className="mt-3 leading-relaxed text-ink-dim">
-            Si buscas un full-stack que también piensa en infraestructura y calidad, este es el
-            canal.
+            Si buscas a un desarrollador full-stack que también piensa en infraestructura y
+            calidad, este es el canal.
           </p>
           <a
             href={`mailto:${profile.email}`}
@@ -17,6 +17,13 @@ export function FooterContact() {
           >
             {profile.email}
           </a>
+          {/* <a
+            href="/cv.pdf"
+            download
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-neon px-5 py-3 font-mono text-sm font-medium text-bg transition-all hover:brightness-110"
+          >
+            ↓ descargar CV
+          </a> */}
         </div>
 
         <div className="grid grid-cols-2 gap-6 font-mono text-sm">
@@ -48,8 +55,8 @@ export function FooterContact() {
           <div>
             <p className="mb-3 text-xs uppercase tracking-widest text-ink-faint">comandos</p>
             <ul className="space-y-2 text-ink-dim">
-              <li>#agentes</li>
               <li>#proyectos</li>
+              <li>#agentes</li>
               <li>#stack</li>
               <li>#trayectoria</li>
             </ul>
